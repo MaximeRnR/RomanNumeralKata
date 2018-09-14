@@ -36,4 +36,19 @@ class RomanNumeralsTest {
     internal fun `return IV when Given 4`() {
         assertThat(romanNumeralTranslator of 4).isEqualTo("IV")
     }
+
+    @Test
+    internal fun `return X when Given 10`() {
+        assertThat(romanNumeralTranslator of 10).isEqualTo("X")
+    }
+
+    @Test
+    internal fun `return IX when Given 9`() {
+        assertThat(romanNumeralTranslator of 9).isEqualTo("IX")
+    }
+
+    @Test
+    internal fun `return VII when Given 7`() {
+        assertThat(romanNumeralTranslator of 7).isEqualTo("VII")
+    }
 }
