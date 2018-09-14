@@ -1,5 +1,7 @@
 package com.rnr.kata
 
+import kotlin.math.abs
+
 
 class RomanNumeralTranslator {
 
@@ -12,19 +14,41 @@ class RomanNumeralTranslator {
     private val LIMIT_REPEAT_TIME = 3
 
     infix fun of(number: Int): String {
-        if (number > LIMIT_REPEAT_TIME) {
-            if(number > 5){
-                if(number <= 10 - LIMIT_SUBSTRACT_TIMES){
-                    val delta = number - 5
-                    return FIVE_SYMBOL.plus(ONE_SYMBOL.repeat(delta))
-                }
-                val delta = 10 - number
-                return ONE_SYMBOL.repeat(delta).plus(TEN_SYMBOL)
-            }
-            val delta = 5 - number;
-            return ONE_SYMBOL.repeat(delta).plus(FIVE_SYMBOL)
+        var result = ""
+        var numberToProcess = number
+        if (number > 20 - LIMIT_SUBSTRACT_TIMES) {
+            result = "X".repeat(numberToProcess / 10)
+            numberToProcess -= (numberToProcess / 10) * 10
         }
-        return ONE_SYMBOL.repeat(number);
+        var delta: Int
+        if (numberToProcess > LIMIT_REPEAT_TIME) {
+            if (number >= 10 - LIMIT_SUBSTRACT_TIMES) {
+                delta = numberToProcess - 10
+                if (delta == -1) {
+                    return result + concatOneSymbol(abs(delta)).plus(TEN_SYMBOL)
+                }
+                if (delta >= 5) {
+                    return result + TEN_SYMBOL.plus(oneAfterFive(delta))
+                }
+                return result + TEN_SYMBOL.plus(concatOneSymbol(delta))
+            }
+
+            if (numberToProcess < 10 && numberToProcess >= 5 - LIMIT_SUBSTRACT_TIMES) {
+                delta = numberToProcess - 5
+                if (delta == -1) {
+                    return result + concatOneSymbol(abs(delta)).plus(FIVE_SYMBOL)
+                }
+                return result + FIVE_SYMBOL.plus(concatOneSymbol(delta))
+            }
+        }
+        return result + concatOneSymbol(numberToProcess)
     }
+
+    private fun oneAfterFive(number: Int): String {
+        val delta = number - 5
+        return FIVE_SYMBOL.plus(concatOneSymbol(delta))
+    }
+
+    private fun concatOneSymbol(numberToProcess: Int) = ONE_SYMBOL.repeat(numberToProcess)
 
 }
