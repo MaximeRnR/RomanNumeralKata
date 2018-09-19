@@ -5,81 +5,83 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class RomanNumeralsTest {
-    private lateinit var romanNumeralTranslator: RomanNumeralTranslator
 
-    @BeforeEach
-    fun init(){
-        romanNumeralTranslator = RomanNumeralTranslator()
-    }
 
     @Test
     internal fun `return I when Given 1`() {
-        assertThat(romanNumeralTranslator of 1).isEqualTo("I")
+        assertThat(1.toRoman()).isEqualTo("I")
     }
 
     @Test
     internal fun `return II when Given 2`() {
-        assertThat(romanNumeralTranslator of 2).isEqualTo("II")
+        assertThat(2.toRoman()).isEqualTo("II")
     }
 
     @Test
     internal fun `return III when Given 3`() {
-        assertThat(romanNumeralTranslator of 3).isEqualTo("III")
+        assertThat((3).toRoman()).isEqualTo("III")
     }
 
     @Test
     internal fun `return V when Given 5`() {
-        assertThat(romanNumeralTranslator of 5).isEqualTo("V")
+        assertThat((5).toRoman()).isEqualTo("V")
     }
 
     @Test
     internal fun `return IV when Given 4`() {
-        assertThat(romanNumeralTranslator of 4).isEqualTo("IV")
+        assertThat((4).toRoman()).isEqualTo("IV")
     }
 
     @Test
     internal fun `return IX when Given 9`() {
-        assertThat(romanNumeralTranslator of 9).isEqualTo("IX")
+        assertThat((9).toRoman()).isEqualTo("IX")
     }
 
     @Test
     internal fun `return X when Given 10`() {
-        assertThat(romanNumeralTranslator of 10).isEqualTo("X")
+        assertThat((10).toRoman()).isEqualTo("X")
     }
 
     @Test
     internal fun `return VII when Given 7`() {
-        assertThat(romanNumeralTranslator of 7).isEqualTo("VII")
+        assertThat((7).toRoman()).isEqualTo("VII")
     }
 
     @Test
+    internal fun `return VIII when Given 8`() {
+        assertThat((8).toRoman()).isEqualTo("VIII")
+    }
+
+
+
+    @Test
     internal fun `return XI when Given 11`() {
-        assertThat(romanNumeralTranslator of 11).isEqualTo("XI")
+        assertThat((11).toRoman()).isEqualTo("XI")
     }
 
     @Test
     internal fun `return XII when Given 12`() {
-        assertThat(romanNumeralTranslator of 12).isEqualTo("XII")
+        assertThat((12).toRoman()).isEqualTo("XII")
     }
 
     @Test
     internal fun `return XV when Given 15`() {
-        assertThat(romanNumeralTranslator of 15).isEqualTo("XV")
+        assertThat((15).toRoman()).isEqualTo("XV")
     }
 
     @Test
     internal fun `return XVI when Given 16`() {
-        assertThat(romanNumeralTranslator of 16).isEqualTo("XVI")
+        assertThat((16).toRoman()).isEqualTo("XVI")
     }
 
     @Test
     internal fun `return XIX when Given 19`() {
-        assertThat(romanNumeralTranslator of 19).isEqualTo("XIX")
+        assertThat((19).toRoman()).isEqualTo("XIX")
     }
 
     @Test
     internal fun `return XXIX when Given 29`() {
-        assertThat(romanNumeralTranslator of 29).isEqualTo("XXIX")
+        assertThat((29).toRoman()).isEqualTo("XXIX")
     }
 
 //    @Test

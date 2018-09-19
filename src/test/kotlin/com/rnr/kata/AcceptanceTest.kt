@@ -7,7 +7,6 @@ class AcceptanceTest{
 
     @Test
     internal fun `return MCMLXXXIX when given 1989`() {
-        val romanNumeral = RomanNumeralTranslator()
-        Assertions.assertThat(romanNumeral of 1989).isEqualTo("MCMLXXXIX")
+        Assertions.assertThat(1989.toRoman()).isEqualTo("MCMLXXXIX")
     }
 }
